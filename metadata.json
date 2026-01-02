@@ -1,0 +1,8 @@
+{
+  "name": "PierringShot AI Studio (Veo 3.1)",
+  "description": "A high-end cybersecurity scriptwriting and AI video generation platform with an An0n Ali aesthetic.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PierringShot AI Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Orbitron:wght@700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void-black: #000000;
+            --signal-white: #FFFFFF;
+            --alert-red: #FF0000;
+            --terminal-green: #00FF00;
+            --corporate-blue: #00A8FF;
+        }
+        body {
+            background-color: var(--void-black);
+            color: var(--signal-white);
+            font-family: 'IBM Plex Mono', monospace;
+            overflow-x: hidden;
+        }
+        /* CRT Scanline Overlay - Permanent 15% opacity as per brand guide vibe */
+        .crt-scanlines {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+        }
+        
+        /* Brand Typography Classes */
+        .font-mono { font-family: 'IBM Plex Mono', monospace; } /* Content / Code */
+        .font-pixel { font-family: 'VT323', monospace; } /* Retro UI / Headers */
+        .font-header { font-family: 'Orbitron', sans-serif; } /* Chapter Titles / Big Labels */
+
+        /* Glitch Effect for Headers */
+        .glitch-text {
+            position: relative;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--void-black);
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 var(--alert-red);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 var(--corporate-blue);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(11px, 9999px, 83px, 0); }
+            20% { clip: rect(104px, 9999px, 32px, 0); }
+            40% { clip: rect(62px, 9999px, 21px, 0); }
+            60% { clip: rect(4px, 9999px, 99px, 0); }
+            80% { clip: rect(78px, 9999px, 56px, 0); }
+            100% { clip: rect(33px, 9999px, 2px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(2px, 9999px, 14px, 0); }
+            40% { clip: rect(46px, 9999px, 12px, 0); }
+            60% { clip: rect(24px, 9999px, 67px, 0); }
+            80% { clip: rect(89px, 9999px, 3px, 0); }
+            100% { clip: rect(13px, 9999px, 84px, 0); }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border: 1px solid var(--void-black);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--alert-red);
+        }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CwruCd4N.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <div class="crt-scanlines"></div>
+</body>
+</html>
